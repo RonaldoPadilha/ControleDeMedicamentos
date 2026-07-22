@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="ModuloFornecedores\" />
     <Folder Include="ModuloMedicamentos\" />
+    <Folder Include="ModuloPacientes\" />
     <Folder Include="ModuloRequisicoes\" />
   </ItemGroup>
 
