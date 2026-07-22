@@ -10,6 +10,7 @@
   <ItemGroup>
     <Folder Include="ModuloFornecedores\" />
     <Folder Include="ModuloMedicamentos\" />
+    <Folder Include="ModuloRequisicoes\" />
   </ItemGroup>
 
 </Project>
