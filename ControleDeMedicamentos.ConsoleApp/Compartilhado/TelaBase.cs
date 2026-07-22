@@ -83,7 +83,7 @@ public abstract class TelaBase<TEntidade> where TEntidade : EntidadeBase
         Console.WriteLine($"Edição de {nomeEntidade}");
         Console.WriteLine("---------------------------------");
 
-        VisualizarTodos(false);
+        VisualizarTodos(false, GetRepositorio(), GetRepositorio());
 
         Console.WriteLine("---------------------------------");
 
@@ -138,7 +138,7 @@ public abstract class TelaBase<TEntidade> where TEntidade : EntidadeBase
         Console.WriteLine($"Exclusão de {nomeEntidade}");
         Console.WriteLine("---------------------------------");
 
-        VisualizarTodos(false);
+        VisualizarTodos(false, GetRepositorio(), GetRepositorio());
 
         Console.WriteLine("---------------------------------");
 

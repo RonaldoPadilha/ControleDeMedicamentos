@@ -55,7 +55,7 @@ while (true)
                 telaBase.Excluir();
 
             else if (opcaoMenuInterno == "4")
-                telaBase.VisualizarTodos(true);
+                telaBase.VisualizarTodos(true, telaBase.GetRepositorio(), telaBase.GetRepositorio());
         }
     }
 }
