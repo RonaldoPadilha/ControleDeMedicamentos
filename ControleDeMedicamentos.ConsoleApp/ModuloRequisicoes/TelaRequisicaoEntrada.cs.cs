@@ -1,7 +1,7 @@
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
+using ControleDeMedicamentos.WebApp.Compartilhado;
+using ControleDeMedicamentos.WebApp.ModuloMedicamentos;
 
-namespace ControleDeMedicamentos.ConsoleApp.ModuloRequisicoes;
+namespace ControleDeMedicamentos.WebApp.ModuloRequisicoes;
 
 public class TelaRequisicaoEntrada : TelaBase<RequisicaoEntrada>, ITelaOpcoes, ITelaCrud
 {

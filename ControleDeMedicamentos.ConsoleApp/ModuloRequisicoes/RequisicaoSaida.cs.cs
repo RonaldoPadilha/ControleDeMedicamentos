@@ -1,13 +1,13 @@
-using ControleDeMedicamentos.ConsoleApp.Compartilhado;
-using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
-using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
+using ControleDeMedicamentos.WebApp.Compartilhado;
+using ControleDeMedicamentos.WebApp.ModuloMedicamentos;
+using ControleDeMedicamentos.WebApp.ModuloPacientes;
 
-namespace ControleDeMedicamentos.ConsoleApp.ModuloRequisicoes;
+namespace ControleDeMedicamentos.WebApp.ModuloRequisicoes;
 
 public class RequisicaoSaida : EntidadeBase
 {
     public Paciente Paciente { get; set; } = null!;
-    Public List<MedicamentoPrescrito> MedicamentosPrescritos { get; set; } = [];
+    public List<MedicamentoPrescrito> MedicamentosPrescritos { get; set; } = [];
     public DateTime Data { get; set; } = DateTime.Now;
 
     public RequisicaoSaida() { }
@@ -66,7 +66,6 @@ public class RequisicaoSaida : EntidadeBase
         RequisicaoSaida requisicaoAtualizada = (RequisicaoSaida)entidadeAtualizada;
 
         Paciente = requisicaoAtualizada.Paciente;
-        Medicamento = requisicaoAtualizada.Medicamento;
-        Quantidade = requisicaoAtualizada.Quantidade;
+        MedicamentosPrescritos = requisicaoAtualizada.MedicamentosPrescritos;
     }
 }

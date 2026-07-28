@@ -1,11 +1,11 @@
-using ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
-using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
-using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
-using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios;
-using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
-using ControleDeMedicamentos.ConsoleApp.ModuloRequisicoes;
+using ControleDeMedicamentos.WebApp.Compartilhado.Arquivos;
+using ControleDeMedicamentos.WebApp.ModuloFornecedores;
+using ControleDeMedicamentos.WebApp.ModuloMedicamentos;
+using ControleDeMedicamentos.WebApp.ModuloFuncionarios;
+using ControleDeMedicamentos.WebApp.ModuloPacientes;
+using ControleDeMedicamentos.WebApp.ModuloRequisicoes;
 
-namespace ControleDeMedicamentos.ConsoleApp.Compartilhado;
+namespace ControleDeMedicamentos.WebApp.Compartilhado;
 
 public class TelaPrincipal
 {
