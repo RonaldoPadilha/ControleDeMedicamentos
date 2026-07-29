@@ -10,11 +10,6 @@ public class TelaFuncionario : TelaBase<Funcionario>, ITelaOpcoes, ITelaCrud
 
     public override void VisualizarTodos(bool deveExibirCabecalho)
     {
-        VisualizarTodos(deveExibirCabecalho, repositorio);
-    }
-
-    public override void VisualizarTodos(bool deveExibirCabecalho, Compartilhado.Arquivos.RepositorioBaseEmArquivo<Funcionario> repositorio)
-    {
         if (deveExibirCabecalho)
         {
             Console.Clear();

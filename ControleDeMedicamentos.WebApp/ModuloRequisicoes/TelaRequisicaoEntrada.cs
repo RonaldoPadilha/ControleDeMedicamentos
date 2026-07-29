@@ -15,12 +15,7 @@ public class TelaRequisicaoEntrada : TelaBase<RequisicaoEntrada>, ITelaOpcoes, I
         this.repositorioMedicamento = repositorioMedicamento;
     }
 
-    public override Compartilhado.Arquivos.RepositorioBaseEmArquivo<RequisicaoEntrada> GetRepositorio()
-    {
-        return repositorio;
-    }
-
-    public override void VisualizarTodos(bool deveExibirCabecalho, Compartilhado.Arquivos.RepositorioBaseEmArquivo<RequisicaoEntrada> repositorio)
+    public override void VisualizarTodos(bool deveExibirCabecalho)
     {
         if (deveExibirCabecalho)
         {

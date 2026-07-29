@@ -5,7 +5,7 @@ namespace ControleDeMedicamentos.WebApp.Compartilhado;
 public abstract class TelaBase<TEntidade> where TEntidade : EntidadeBase
 {
     private readonly string nomeEntidade = string.Empty;
-    private readonly RepositorioBaseEmArquivo<TEntidade> repositorio;
+    protected readonly RepositorioBaseEmArquivo<TEntidade> repositorio;
 
     protected TelaBase(string nomeEntidade, RepositorioBaseEmArquivo<TEntidade> repositorio)
     {
@@ -83,7 +83,7 @@ public abstract class TelaBase<TEntidade> where TEntidade : EntidadeBase
         Console.WriteLine($"Edição de {nomeEntidade}");
         Console.WriteLine("---------------------------------");
 
-        VisualizarTodos(false, GetRepositorio(), GetRepositorio());
+        VisualizarTodos(false);
 
         Console.WriteLine("---------------------------------");
 
@@ -138,7 +138,7 @@ public abstract class TelaBase<TEntidade> where TEntidade : EntidadeBase
         Console.WriteLine($"Exclusão de {nomeEntidade}");
         Console.WriteLine("---------------------------------");
 
-        VisualizarTodos(false, GetRepositorio(), GetRepositorio());
+        VisualizarTodos(false);
 
         Console.WriteLine("---------------------------------");
 
