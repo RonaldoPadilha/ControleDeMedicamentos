@@ -1,4 +1,4 @@
-@model List<Fornecedor>
+@model List<ListarFuncionarioViewModel>
 
 <h2>Controle de Medicamentos</h2>
 
@@ -9,10 +9,10 @@
 <a href="/Funcionario/Listar">Funcionários</a> / @* Âncora ou Link *@
 <hr />
 
-<h1>Listagem de Fornecedores</h1>
+<h1>Listagem de Funcionários</h1>
 
 <p>
-    <a href="Cadastrar">Cadastrar fornecedor</a>
+    <a href="Cadastrar">Cadastrar funcionário</a>
 </p>
 
 <table>
@@ -21,19 +21,17 @@
             <th>Id</th>
             <th>Nome</th>
             <th>Telefone</th>
-            <th>CNPJ</th>
             <th>Ações</th>
         </tr>
     </thead>
 
     <tbody>
-        @foreach (Fornecedor f in Model)
+        @foreach (ListarFuncionarioViewModel f in Model)
         {
             <tr>
                 <td>@f.Id</td>
                 <td>@f.Nome</td>
                 <td>@f.Telefone</td>
-                <td>@f.Cnpj</td>
                 <td>
                     <a href="Editar/@f.Id">Editar</a>
                     <span> | </span>
