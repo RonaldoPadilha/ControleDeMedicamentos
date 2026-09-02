@@ -10,109 +10,109 @@ public sealed class FuncionarioController : Controller
     public FuncionarioController(RepositorioFuncionarioEmArquivo repositorioFuncionario)
     {
         this.repositorioFuncionario = repositorioFuncionario;
+    }
 
-        [HttpGet]
-        public ActionResult Listar()
+    [HttpGet]
+    public ActionResult Listar()
+    {
+        List<Funcionario> funcionarios = repositorioFuncionario.SelecionarTodos();
+
+        List<ListarFuncionarioViewModel> viewModels = new List<ListarFuncionarioViewModel>();
+
+        foreach (Funcionario f in funcionarios)
         {
-            List<Funcionario> funcionarios = repositorioFuncionario.SelecionarTodos();
-
-            List<ListarFuncionarioViewModel> viewModels = new List<ListarFuncionarioViewModel>();
-
-            foreach (Funcionario f in funcionarios)
-            {
-                // Records são objetos imutáveis
-                ListarFuncionarioViewModel vm = new ListarFuncionarioViewModel(
-                    f.Id,
-                    f.Nome,
-                    f.Telefone
-                );
-
-                viewModels.Add(vm);
-            }
-
-            return View(viewModels);
-        }
-
-        [HttpGet]
-        public ActionResult Cadastrar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Cadastrar(CadastrarFuncionarioViewModel cadastrarVm)
-        {
-            Funcionario funcionario = new Funcionario(
-                cadastrarVm.Nome,
-                cadastrarVm.Telefone,
-                cadastrarVm.Cpf
+            // Records são objetos imutáveis
+            ListarFuncionarioViewModel vm = new ListarFuncionarioViewModel(
+                f.Id,
+                f.Nome,
+                f.Telefone
             );
 
-            repositorioFuncionario.Cadastrar(funcionario);
-
-            return RedirectToAction(nameof(Listar));
+            viewModels.Add(vm);
         }
 
-        [HttpGet]
-        public ActionResult Editar(int id)
-        {
-            Funcionario? funcionarioSelecionado = repositorioFuncionario.SelecionarPorId(id);
+        return View(viewModels);
+    }
 
-            if (funcionarioSelecionado == null)
-                return NotFound();
+    [HttpGet]
+    public ActionResult Cadastrar()
+    {
+        return View();
+    }
 
-            EditarFuncionarioViewModel viewModel = new EditarFuncionarioViewModel(
-                id,
-                funcionarioSelecionado.Nome,
-                funcionarioSelecionado.Telefone,
-                funcionarioSelecionado.Cpf
-            );
+    [HttpPost]
+    public ActionResult Cadastrar(CadastrarFuncionarioViewModel cadastrarVm)
+    {
+        Funcionario funcionario = new Funcionario(
+            cadastrarVm.Nome,
+            cadastrarVm.Telefone,
+            cadastrarVm.Cpf
+        );
 
-            return View(viewModel);
-        }
+        repositorioFuncionario.Cadastrar(funcionario);
 
-        [HttpPost]
-        public ActionResult Editar(EditarFuncionarioViewModel editarVm)
-        {
-            Funcionario funcionarioAtualizado = new Funcionario(
-                editarVm.Nome,
-                editarVm.Telefone,
-                editarVm.Cpf
-            );
+        return RedirectToAction(nameof(Listar));
+    }
 
-            bool conseguiuEditar = repositorioFuncionario.Editar(editarVm.Id, funcionarioAtualizado);
+    [HttpGet]
+    public ActionResult Editar(int id)
+    {
+        Funcionario? funcionarioSelecionado = repositorioFuncionario.SelecionarPorId(id);
 
-            if (!conseguiuEditar)
-                return NotFound();
+        if (funcionarioSelecionado == null)
+            return NotFound();
 
-            return RedirectToAction(nameof(Listar));
-        }
+        EditarFuncionarioViewModel viewModel = new EditarFuncionarioViewModel(
+            id,
+            funcionarioSelecionado.Nome,
+            funcionarioSelecionado.Telefone,
+            funcionarioSelecionado.Cpf
+        );
 
-        [HttpGet]
-        public ActionResult Excluir(int id)
-        {
-            Funcionario? funcionarioSelecionado = repositorioFuncionario.SelecionarPorId(id);
+        return View(viewModel);
+    }
 
-            if (funcionarioSelecionado == null)
-                return NotFound();
+    [HttpPost]
+    public ActionResult Editar(EditarFuncionarioViewModel editarVm)
+    {
+        Funcionario funcionarioAtualizado = new Funcionario(
+            editarVm.Nome,
+            editarVm.Telefone,
+            editarVm.Cpf
+        );
 
-            ExcluirFuncionarioViewModel viewModel = new ExcluirFuncionarioViewModel(
-                id,
-                funcionarioSelecionado.Nome
-            );
+        bool conseguiuEditar = repositorioFuncionario.Editar(editarVm.Id, funcionarioAtualizado);
 
-            return View(viewModel);
-        }
+        if (!conseguiuEditar)
+            return NotFound();
 
-        [HttpPost]
-        public ActionResult Excluir(ExcluirFuncionarioViewModel excluirVm)
-        {
-            bool conseguiuExcluir = repositorioFuncionario.Excluir(excluirVm.Id);
+        return RedirectToAction(nameof(Listar));
+    }
 
-            if (!conseguiuExcluir)
-                return NotFound();
+    [HttpGet]
+    public ActionResult Excluir(int id)
+    {
+        Funcionario? funcionarioSelecionado = repositorioFuncionario.SelecionarPorId(id);
 
-            return RedirectToAction(nameof(Listar));
-        }
+        if (funcionarioSelecionado == null)
+            return NotFound();
+
+        ExcluirFuncionarioViewModel viewModel = new ExcluirFuncionarioViewModel(
+            id,
+            funcionarioSelecionado.Nome
+        );
+
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    public ActionResult Excluir(ExcluirFuncionarioViewModel excluirVm)
+    {
+        bool conseguiuExcluir = repositorioFuncionario.Excluir(excluirVm.Id);
+
+        if (!conseguiuExcluir)
+            return NotFound();
+
+        return RedirectToAction(nameof(Listar));
     }
 }
