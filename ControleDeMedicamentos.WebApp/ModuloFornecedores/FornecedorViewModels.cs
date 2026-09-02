@@ -29,10 +29,12 @@ public record EditarFornecedorViewModel(
         ErrorMessage = "O campo \"Nome\" deve conter entre 2 e 100 caracteres.")]
     string Nome,
 
+
     [Required(ErrorMessage = "O campo \"Telefone\" é obrigatório.")]
     [RegularExpression(@"^\(\d{2}\) \d{4,5}-\d{4}$",
         ErrorMessage = "O campo \"Telefone\" deve estar no formato (DDD) 90000-0000.")]
     string Telefone,
+
 
     [Required(ErrorMessage = "O campo \"CNPJ\" é obrigatório.")]
     [RegularExpression(@"^\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2}$",

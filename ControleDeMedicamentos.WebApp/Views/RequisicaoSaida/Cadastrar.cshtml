@@ -43,8 +43,7 @@
                         <tbody>
                             @for (int indice = 0; indice < Model.MedicamentosPrescritos.Count; indice++)
                             {
-                                MedicamentoPrescritoRequisicaoSaidaViewModel medicamentoPrescrito =
-                        Model.MedicamentosPrescritos[indice];
+                                MedicamentoPrescritoRequisicaoSaidaViewModel medicamentoPrescrito = Model.MedicamentosPrescritos[indice];
 
                                 <tr>
                                     <td>
@@ -54,8 +53,7 @@
                                     <td>@medicamentoPrescrito.NomeMedicamento</td>
                                     <td>@medicamentoPrescrito.QuantidadeEmEstoque</td>
                                     <td>
-                                        <input class="form-control" asp-for="MedicamentosPrescritos[indice].Quantidade"
-                                               type="number">
+                                        <input class="form-control" asp-for="MedicamentosPrescritos[indice].Quantidade" type="number">
                                     </td>
                                 </tr>
                             }

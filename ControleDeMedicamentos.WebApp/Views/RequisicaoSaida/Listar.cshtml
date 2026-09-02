@@ -28,8 +28,7 @@ else
                         <p class="card-text"><strong>Data:</strong> @requisicao.Data.ToShortDateString()</p>
                         <h3 class="h6">Medicamentos</h3>
                         <ul class="mb-0">
-                            @foreach (ListarMedicamentoPrescritoRequisicaoSaidaViewModel medicamento in
-                    requisicao.MedicamentosPrescritos)
+                            @foreach (ListarMedicamentoPrescritoRequisicaoSaidaViewModel medicamento in requisicao.MedicamentosPrescritos)
                             {
                                 <li>@medicamento.Nome: @medicamento.Quantidade</li>
                             }

@@ -27,3 +27,4 @@ public record CadastrarRequisicaoEntradaViewModel(
     public List<MedicamentoRequisicaoEntradaViewModel> Medicamentos { get; init; } = [];
     public List<FuncionarioRequisicaoEntradaViewModel> Funcionarios { get; init; } = [];
 }
+
